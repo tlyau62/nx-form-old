@@ -12,9 +12,14 @@
 import NxFormLayout from "./NxFormLayout";
 
 export default {
-  props: ["label", "value", "edit"],
+  props: ["label", "value"],
   components: {
     NxFormLayout,
+  },
+  data() {
+    return {
+      edit: false,
+    };
   },
   computed: {
     computedValue: {
@@ -25,6 +30,11 @@ export default {
         this.$emit("input", value);
       },
     },
+  },
+  created() {
+    this.$parent.$emit("created:field", {
+      context: this,
+    });
   },
 };
 </script>
