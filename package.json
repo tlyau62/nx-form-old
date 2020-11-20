@@ -9,6 +9,8 @@
   "dependencies": {
     "@braid/vue-formulate": "^2.4.5",
     "core-js": "^3.6.5",
+    "filesize": "^6.1.0",
+    "lodash": "^4.17.20",
     "vue": "^2.6.11",
     "vue-multiselect": "^2.1.6",
     "vue-router": "^3.2.0"

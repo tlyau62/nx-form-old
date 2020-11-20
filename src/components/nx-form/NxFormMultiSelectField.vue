@@ -1,5 +1,5 @@
 <template>
-  <NxFormField
+  <NxFormGeneralField
     :edit="edit"
     :label="label"
     v-bind="$attrs"
@@ -14,17 +14,17 @@
     <template #view>
       {{ computedValue && computedValue.value }}
     </template>
-  </NxFormField>
+  </NxFormGeneralField>
 </template>
 
 <script>
-import NxFormField from "./NxFormField";
+import NxFormGeneralField from "./NxFormGeneralField";
 import NxFormFieldMixin from "./nx-form-field.mixin";
 
 export default {
   mixins: [NxFormFieldMixin],
   components: {
-    NxFormField,
+    NxFormGeneralField,
   },
 };
 </script>

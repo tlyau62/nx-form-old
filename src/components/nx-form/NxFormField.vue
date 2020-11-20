@@ -1,32 +1,34 @@
 <template>
-  <NxFormLayout :edit="edit">
-    <template #header>
-      <slot name="header">
-        {{ label }}
-      </slot>
-    </template>
-    <template #edit>
-      <slot name="edit">
-        <FormulateInput v-bind="$attrs" v-model="computedValue" />
-      </slot>
-    </template>
-    <template #view>
-      <slot name="view">
-        {{ computedValue }}
-      </slot>
-    </template>
-  </NxFormLayout>
+  <component
+    :is="fieldComponent"
+    :type="type"
+    :label="label"
+    v-bind="$attrs"
+    v-model="computedValue"
+  />
 </template>
 
 <script>
-import NxFormLayout from "./NxFormLayout";
+import NxFormGeneralField from "./NxFormGeneralField";
+import NxFormMultiSelectField from "./NxFormMultiSelectField";
 import NxFormFieldMixin from "./nx-form-field.mixin";
 
 export default {
+  props: ["type", "value"],
   components: {
-    NxFormLayout,
+    NxFormGeneralField,
+    NxFormMultiSelectField,
   },
   mixins: [NxFormFieldMixin],
+  computed: {
+    fieldComponent() {
+      if (this.type === "multiselect") {
+        return "NxFormMultiSelectField";
+      }
+
+      return "NxFormGeneralField";
+    },
+  },
 };
 </script>
 

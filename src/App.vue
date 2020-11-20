@@ -24,12 +24,11 @@
         v-model="form.files"
       >
         <template #view>
-          123
           {{ form.files && form.files.files[0].name }}
         </template>
       </NxFormField>
 
-      <NxFormMultiSelectField
+      <NxFormField
         type="multiselect"
         name="multiselect"
         label="Sample multiselect input"
@@ -50,13 +49,11 @@
 <script>
 import NxForm from "@/components/nx-form/NxForm";
 import NxFormField from "@/components/nx-form/NxFormField";
-import NxFormMultiSelectField from "@/components/nx-form/NxFormMultiSelectField";
 
 export default {
   components: {
     NxForm,
     NxFormField,
-    NxFormMultiSelectField,
   },
   data() {
     return {
