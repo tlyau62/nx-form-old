@@ -1,9 +1,19 @@
 <template>
   <NxFormLayout :edit="edit">
-    <template #header>{{ label }}</template>
-    <template #view>{{ computedValue }}</template>
+    <template #header>
+      <slot name="header">
+        {{ label }}
+      </slot>
+    </template>
     <template #edit>
-      <FormulateInput v-bind="$attrs" v-model="computedValue" />
+      <slot name="edit">
+        <FormulateInput v-bind="$attrs" v-model="computedValue" />
+      </slot>
+    </template>
+    <template #view>
+      <slot name="view">
+        {{ computedValue }}
+      </slot>
     </template>
   </NxFormLayout>
 </template>

@@ -13,6 +13,21 @@
         error-behavior="live"
         v-model="form.text"
       />
+
+      <NxFormCommonField
+        type="file"
+        name="file"
+        label="Select your documents to upload"
+        help="Select one or more PDFs to upload"
+        validation="mime:application/pdf"
+        multiple
+        v-model="form.files"
+      >
+        <template #view>
+          123
+          {{ form.files && form.files.files[0].name }}
+        </template>
+      </NxFormCommonField>
     </NxForm>
   </div>
 </template>
@@ -31,6 +46,11 @@ export default {
       form: {},
       edit: false,
     };
+  },
+  watch: {
+    "form.files"(files) {
+      console.log(files);
+    },
   },
 };
 </script>
