@@ -28,6 +28,25 @@
           {{ form.files && form.files.files[0].name }}
         </template>
       </NxFormField>
+
+      <NxFormField
+        type="multiselect"
+        name="multiselect"
+        label="Sample multiselect input"
+        help="Sample help text"
+        validation="required"
+        error-behavior="live"
+        :options="[
+          { value: 'first', label: 'First name' },
+          { value: 'last', label: 'Last name' },
+          { value: 'initial', label: 'Middle Initial' },
+        ]"
+        v-model="form.multiselect"
+      >
+        <template #view>
+          {{ form.multiselect && form.multiselect.value }}
+        </template>
+      </NxFormField>
     </NxForm>
   </div>
 </template>
