@@ -3,7 +3,7 @@
     <button @click="edit = !edit">Toggle edit</button>
 
     <NxForm :edit="edit">
-      <NxFormInputField
+      <NxFormField
         type="text"
         name="sample"
         label="Sample text input"
@@ -14,7 +14,7 @@
         v-model="form.text"
       />
 
-      <NxFormInputField
+      <NxFormField
         type="file"
         name="file"
         label="Select your documents to upload"
@@ -27,19 +27,19 @@
           123
           {{ form.files && form.files.files[0].name }}
         </template>
-      </NxFormInputField>
+      </NxFormField>
     </NxForm>
   </div>
 </template>
 
 <script>
 import NxForm from "@/components/nx-form/NxForm";
-import NxFormInputField from "@/components/nx-form/NxFormInputField";
+import NxFormField from "@/components/nx-form/NxFormField";
 
 export default {
   components: {
     NxForm,
-    NxFormInputField,
+    NxFormField,
   },
   data() {
     return {
