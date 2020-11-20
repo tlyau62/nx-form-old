@@ -20,32 +20,13 @@
 
 <script>
 import NxFormLayout from "./NxFormLayout";
+import NxFormFieldMixin from "./nx-form-field.mixin";
 
 export default {
-  props: ["label", "value"],
   components: {
     NxFormLayout,
   },
-  data() {
-    return {
-      edit: false,
-    };
-  },
-  computed: {
-    computedValue: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit("input", value);
-      },
-    },
-  },
-  created() {
-    this.$parent.$emit("created:field", {
-      context: this,
-    });
-  },
+  mixins: [NxFormFieldMixin],
 };
 </script>
 

@@ -29,7 +29,7 @@
         </template>
       </NxFormField>
 
-      <NxFormField
+      <NxFormMultiSelectField
         type="multiselect"
         name="multiselect"
         label="Sample multiselect input"
@@ -42,11 +42,7 @@
           { value: 'initial', label: 'Middle Initial' },
         ]"
         v-model="form.multiselect"
-      >
-        <template #view>
-          {{ form.multiselect && form.multiselect.value }}
-        </template>
-      </NxFormField>
+      />
     </NxForm>
   </div>
 </template>
@@ -54,11 +50,13 @@
 <script>
 import NxForm from "@/components/nx-form/NxForm";
 import NxFormField from "@/components/nx-form/NxFormField";
+import NxFormMultiSelectField from "@/components/nx-form/NxFormMultiSelectField";
 
 export default {
   components: {
     NxForm,
     NxFormField,
+    NxFormMultiSelectField,
   },
   data() {
     return {
