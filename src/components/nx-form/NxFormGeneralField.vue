@@ -7,7 +7,11 @@
     </template>
     <template #edit>
       <slot name="edit">
-        <FormulateInput v-bind="$attrs" v-model="computedValue" />
+        <FormulateInput
+          v-bind="$attrs"
+          v-model="computedValue"
+          @validation="validation"
+        />
       </slot>
     </template>
     <template #view>
@@ -27,6 +31,11 @@ export default {
     NxFormLayout,
   },
   mixins: [NxFormFieldMixin],
+  methods: {
+    validation(evt) {
+      this.$emit("validation", evt);
+    },
+  },
 };
 </script>
 

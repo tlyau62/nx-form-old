@@ -5,6 +5,7 @@
     :label="label"
     v-bind="$attrs"
     v-model="computedValue"
+    @validation="validation"
   />
 </template>
 
@@ -27,6 +28,11 @@ export default {
       }
 
       return "NxFormGeneralField";
+    },
+  },
+  methods: {
+    validation(event) {
+      this.$parent.$emit("validation", event);
     },
   },
 };

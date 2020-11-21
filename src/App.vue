@@ -2,7 +2,9 @@
   <div id="app">
     <button @click="edit = !edit">Toggle edit</button>
 
-    <NxForm :edit="edit">
+    {{ valid }}
+
+    <NxForm :edit="edit" @validation="validation">
       <NxFormField
         type="text"
         name="sample"
@@ -59,11 +61,17 @@ export default {
     return {
       form: {},
       edit: false,
+      valid: {},
     };
   },
   watch: {
     "form.files"(files) {
       console.log(files);
+    },
+  },
+  methods: {
+    validation(evt) {
+      this.valid = evt;
     },
   },
 };
