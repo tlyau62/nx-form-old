@@ -20,12 +20,18 @@ export default {
   created() {
     this.$on("created:field", (component) => {
       this.components.push(component);
+      this.setEdit();
     });
   },
   watch: {
     edit(edit) {
+      this.setEdit();
+    },
+  },
+  methods: {
+    setEdit() {
       for (const component of this.components) {
-        component.context.edit = edit;
+        component.context.edit = this.edit;
       }
     },
   },

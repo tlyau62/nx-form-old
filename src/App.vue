@@ -4,7 +4,7 @@
 
     {{ valid }}
 
-    <NxForm :edit="edit" @validation="validation">
+    <NxForm :edit="true" @validation="validation">
       <NxFormField
         type="text"
         name="sample"
