@@ -1,5 +1,6 @@
 import NxForm from "./NxForm";
 import NxFormField from "./NxFormField";
+import VueFormulate from "@braid/vue-formulate";
 import FormulatePlugins from "@/components/formulate/formulate-plugins";
 
 const NxFormPlugin = {
